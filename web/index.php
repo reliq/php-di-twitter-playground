@@ -7,6 +7,7 @@ $container = require __DIR__ . '/../app/bootstrap.php';
 $dispatcher = FastRoute\simpleDispatcher(function (RouteCollector $r) {
     $r->addRoute('GET', '/', 'SuperBlog\Controller\HomeController');
     $r->addRoute('GET', '/article/{id}', ['SuperBlog\Controller\ArticleController', 'show']);
+    $r->addRoute('GET', '/tweets/check', ['SuperBlog\Controller\TwitterController', 'check']);
 });
 
 $route = $dispatcher->dispatch($_SERVER['REQUEST_METHOD'], $_SERVER['REQUEST_URI']);
